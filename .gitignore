@@ -1,0 +1,69 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+out/
+artifacts/
+
+# publish output
+publish/
+PublishProfiles/
+
+# Rider
+.idea/
+*.sln.iml
+
+# ReSharper
+_ReSharper*/
+*ReSharper*
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# ASP.NET Core / general
+appsettings.*.Local
+appsettings.*.json
+secrets.json
+wwwroot/lib/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs, temp and test results
+*.log
+logs/
+TestResults/
+*.trx
+coverage/
+tmp/
+temp/
+
+# Databases
+*.db
+*.sqlite
+
+# Certificates and keys
+*.pfx
+*.p12
+*.key
+
+# OS generated files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Environment files
+.env
+.env.*
+
