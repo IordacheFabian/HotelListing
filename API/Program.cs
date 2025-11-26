@@ -1,4 +1,7 @@
+using API.Configurations;
+using API.Contracts;
 using API.Data;
+using API.Repository;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -23,6 +26,9 @@ builder.Services.AddCors(options =>
 builder.Host.UseSerilog((context, loggerConfig) => 
     loggerConfig.WriteTo.Console()
                 .ReadFrom.Configuration(context.Configuration));
+builder.Services.AddAutoMapper(typeof(MapperConfig));
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
 
 var app = builder.Build();
 
