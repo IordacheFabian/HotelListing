@@ -3,6 +3,7 @@ using API.Data;
 using API.Data.Models;
 using API.Models.Country;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,7 @@ namespace API.Controllers
         } 
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult> UpdateCountry(int id, UpdateCountryDto updateCountryDto)
         {
             if( id != updateCountryDto.Id) return BadRequest("Invalid Country Id");
@@ -59,6 +61,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Country>> CreateCountry(CreateCountryDto createCountry)
         {
             var country = _mapper.Map<Country>(createCountry);
@@ -70,6 +73,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> DeleteCountry(int id)
         {
             var country = await _countriesRepository.GetAsync(id);

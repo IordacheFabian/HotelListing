@@ -4,6 +4,7 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(HotelListingDbContext))]
-    partial class HotelListingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251203115708_AddedDefaultRoles")]
+    partial class AddedDefaultRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,6 +132,14 @@ namespace API.Data.Migrations
                             CountryId = 4,
                             Name = "The Ritz London",
                             Rating = 4.7000000000000002
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "100 Reforma Ave, Mexico City",
+                            CountryId = 3,
+                            Name = "Hotel Mexico City",
+                            Rating = 4.2999999999999998
                         },
                         new
                         {
@@ -248,13 +259,13 @@ namespace API.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "28ae989c-f0b3-4d67-bb1d-1cf3a5241cbe",
+                            Id = "5f506e91-44fd-464d-b73e-9721694d8b41",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "79d4768b-813a-4cb8-bfe5-9c346a87a3dc",
+                            Id = "d42fae18-9df3-4b80-a4c9-1f612929d707",
                             Name = "User",
                             NormalizedName = "USER"
                         });
